@@ -1,0 +1,99 @@
+.introduce {
+    margin: auto;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    &-img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        object-fit: cover;
+        image-rendering: pixelated;
+    }
+    &-main {
+        &::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            background-color: rgba(0, 1, 15, 0.3);
+        }
+    }
+    &-caption {
+        margin-top: 50px;
+        position: relative;
+        z-index: 2;
+        font-family: $font-family2;
+        color: $color-white;
+        text-align: center;
+        overflow: hidden;
+    }
+    &-title, &-sub {
+        text-shadow: 9px 1px 1px rgba($color-blue, 0.2);
+        animation: textShadow 1s infinite 1s ease;
+    }
+    &-title {
+        font-size: 70px;
+        transform: translateY(-100%);
+    }
+    &-sub {
+        font-size: 50px;
+        transform: translateY(-30px);
+    }  
+    &-btnStart, &-author {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 2;
+        font-size: 30px;
+    }
+    &-btnStart {
+        top: 48%;
+        padding: 10px 10px;
+        background-color: $color-blue;
+        color: $color-white;
+        animation: boxShadow 1.5s infinite ease-in;
+    }
+    &-author {
+        bottom: 10px;
+        font-weight: 700;
+        font-family: $font-family2;
+        color: $color-blue;
+        text-shadow: 6px 1px 1px rgba($color-white, 0.6);
+    }
+}
+@keyframes slideDown {
+    0% {
+        top: 0px;
+        transform: translateY(-100%);
+    }
+    100% {
+        top: 40px;
+        transform: translateY(0);
+    }
+}
+@keyframes textShadow {
+    0% {
+        text-shadow: 9px 1px 1px rgba($color-blue, 0.2);
+    }
+    50% {
+        text-shadow: none;
+    }
+    100% {
+        text-shadow: 9px 1px 1px rgba($color-blue, 0.2);
+    }
+}     
+@keyframes boxShadow {
+    0% {
+        box-shadow: 0px 0px 0px 0px rgba($color: $color-white, $alpha: 0.1);
+    }
+    50% {
+         box-shadow: 0px 0px 10px 5px rgba($color: $color-white, $alpha: 0.8);
+    }
+    100% {
+        box-shadow: 0px 0px 0px 0px rgba($color: $color-white, $alpha: 0.1);
+    }
+}

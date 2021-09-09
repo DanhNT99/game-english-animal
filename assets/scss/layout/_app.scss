@@ -1,0 +1,253 @@
+.app {
+    height: 100%;
+    margin: auto;
+    position: relative;
+    overflow: hidden;
+    &-imgBg {
+        image-rendering: pixelated;
+        position: absolute;
+        top: 0px;
+        z-index: -2;
+    }
+}
+.header {
+    display: flex;
+    &-level {
+        width: 20%;
+        background-color: $color-green1;
+        color: $color-white;
+        border-bottom-right-radius: 10px;
+        border-bottom-left-radius: 10px;
+        &--Text {
+            font-size: 18px;
+            font-family: $font-family2;
+            transform: translate(10px, 10px);
+        }
+        &--Num {
+            font-size: 50px;
+            font-weight: 800;
+            text-align: center;
+        }
+    }
+    &-coin {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    &-bar {
+        width: 70%;
+        background-color: $color-white;
+        text-align: center;
+        padding: 3px 0px;
+        border-radius: 20px;
+        position: relative;
+        overflow: hidden;
+        span {
+            position: relative;
+            z-index: 1;
+            font-size: 20px;
+            font-family: $font-family1;
+        }
+        &--slide {
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            height: 100%;
+            width: 0px;
+            background-color: $color-green1;
+        }
+    }
+    &-img {
+        width: 30px;
+        height: 30px;
+        transform: rotateX(0);
+        animation: imgRotate 2s infinite ease
+    }
+}
+@keyframes imgRotate {
+    100% { transform: rotateY(360deg); }
+}
+.frame {
+    width: 60%;
+    height: 30%;
+    margin: 50px auto;
+    border-radius: 2px;
+    box-shadow: 0px 0px 2px 10px $color-yellow,
+    5px 5px 5px 10px rgba($color: $color-white, $alpha: 0.9), 
+    0px 0px 5px 15px rgba($color: $color-black, $alpha: 0.4); 
+    background-color:$color-black;
+    &-img {
+        width: 100%;
+        height: 100%;
+        border-radius: 2px;
+        object-fit: cover;
+    }
+}
+.answer {
+    padding: 0px 20px;
+    &-list{
+        display: flex;
+        flex-wrap: wrap;
+        margin: 20px auto;
+        width: fit-content;
+        &--word {
+            list-style: none;
+            margin: 0px 3px 3px 3px;
+            border-radius: 5px;
+            width: 45px;
+            height: 45px;
+            border: 5px solid $color-green;
+            background-color: $color-green1;
+        }
+    }
+}
+
+.selector {
+    padding: 0px 20px;
+    &-list {
+        display: flex;
+        flex-wrap: wrap;
+        width: fit-content;
+        margin: 40px auto 0px auto;
+        height: 100%;
+
+        li {
+
+            list-style: none;
+            margin: 0px 5px 5px 5px;
+
+           
+            span {
+                display: block;
+                width: 45px;
+                height: 45px;
+                transition: all 0.5s ease;
+                border-radius: 100%;
+            }
+            .showShadow {
+                animation: slectorShadown 0.7s ease
+            }
+            @keyframes slectorShadown {
+                0% {
+                    transform: scale(0.3);
+                    box-shadow: 0px 0px 0px 1px rgba($color: $color-yellow1, $alpha: 0.3);
+                }
+                50% {
+                    box-shadow: 0px 0px 0px 2px rgba($color: $color-yellow, $alpha: 0.9);
+                }
+                100% {
+                    transform: scale(1.1);
+                    box-shadow: 0px 0px 0px 1px rgba($color: $color-yellow2, $alpha: 0.1);
+                }
+            }
+        }
+
+        &--btn {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background-color: $color-yellow;
+            color: $color-white;
+            font-size: 25px;
+            font-weight: 900;
+            box-shadow: 0px 2px 4px 0px rgba($color: $color-black, $alpha: 0.5);
+            user-select: none;
+        }
+    }
+
+}
+.noti {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 999;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.5s ease;
+    background-color: rgba($color: $color-black, $alpha: 0.4);
+    opacity: 0;
+    visibility: hidden;
+    &.show {
+        opacity: 1;
+        visibility: inherit;
+    }
+    &-box {
+        width: 80%;
+        height: 300px;
+        background-color: $color-white;
+        border-radius: 5px;
+        &-image {
+            width: 150px;
+            height: 150px;
+            margin: auto;
+        }
+        &-tite {
+            font-family: $font-family1;
+            text-align: center;
+            font-size: 25px;
+            color: $color-green;
+            padding-top: 20px;
+        }
+        &-btn {
+            text-align: center;
+            margin-top: 36px;
+            button {
+                padding: 5px 15px;
+                background-color: $color-green;
+                font-size: 25px;
+                color: $color-white;
+                box-shadow: 0px 2px 4px 0px rgba($color: $color-black, $alpha: 0.5);
+                transition: all 0.3s ease;
+            }
+        }
+    }
+}
+@media (max-width:400px ){
+    .answer {
+        padding: 0px 5px
+    }
+    .selector {
+        padding: 0px 5px
+    }
+}
+@media (max-width:345px ){
+    .header {
+        &-level {
+            &--Text {
+                font-size: 17px;
+            }
+            &--Num {
+                margin-top: 5px;
+                font-size: 40px;
+            }
+        }
+    }
+    .frame {
+        width: 70%;
+    }
+    .answer {
+        &-list {
+            &--word {
+                width: 38px;
+                height: 38px;
+                border-width: 3px;
+            }
+        }
+    }
+    .selector {
+        &-list {
+            li {
+               margin: 0px;
+            }
+            &--btn {
+                width: 35px;
+                height: 35px;     
+                font-size: 20px;       
+            }
+        }
+    }
+}

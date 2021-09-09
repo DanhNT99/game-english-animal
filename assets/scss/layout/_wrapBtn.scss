@@ -1,0 +1,33 @@
+.wrap-btn {
+    position: absolute;
+    left: 50%;
+    bottom: 30px;
+    transform: translateX(-50%);
+    &-confirm {
+        padding: 10px 15px;
+        font-size: 20px;
+        background-color: $color-blue;
+        color: $color-white;
+        border: none;
+        outline: none;
+        border-radius: 5px;
+        font-family: $font-family1;
+        cursor: pointer;
+        transition: all 0.7s ease;
+        &:active, &:hover {
+            opacity: 0.8;
+        }
+    }
+}
+
+.notiError {
+    position: absolute;
+    top: 10%;
+    right: 0px;
+    background-color: #c92525;
+    padding: 8px 5px;
+    p {
+        color: white;
+        font-family: "roboto";
+    }
+}
