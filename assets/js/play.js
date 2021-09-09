@@ -95,7 +95,7 @@ $(document).ready(function () {
                 let audioWrong = document.querySelector(".wrong")
                 
                 //html inner sumCoin of App
-                $(".header-coin-box--sumNumber").text(`\\${this.getSumCoin()}`);
+                $(".header-bar--sumNumber").text(`\\${this.getSumCoin()}`);
 
                 //check answer 
                 $(".wrap-btn-confirm").click(function () { 
@@ -132,8 +132,8 @@ $(document).ready(function () {
                     sumCoinUser += animals[currentIndex].coin
                     let intervalCoin = setInterval(()=> {
                         sum++
-                        $(".header-coin-box--number").text(sum)
-                        $(".header-coin-box--slide").animate({
+                        $(".header-bar--number").text(sum)
+                        $(".header-bar--slide").animate({
                             width:`${sum / _this.getSumCoin() * 100}%`
                         },0)
                         if(sum === sumCoinUser) {
